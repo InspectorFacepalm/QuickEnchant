@@ -1,0 +1,86 @@
+import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.plugin.java.JavaPlugin;
+
+public class ListenerClass extends JavaPlugin
+  implements Listener
+{
+  @EventHandler
+  public void onCLickev(InventoryClickEvent cevent)
+  {
+    Player por = (Player)cevent.getWhoClicked();
+
+    if ((por.hasPermission("quickenchant.gui")) && 
+      (cevent.getInventory().getName() == "Enchant Menu")) {
+      
+      
+    	if (cevent.getSlot() == 0) {
+            Player pl = (Player)cevent.getWhoClicked();
+
+          pl.closeInventory();
+          Inventory target = pl.getInventory();
+          ItemStack diamondlegg = new ItemStack(Material.DIAMOND_LEGGINGS, 1);
+
+          diamondlegg.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 1);
+
+          ItemMeta mm = diamondlegg.getItemMeta();
+          diamondlegg.setItemMeta(mm);
+          target.addItem(new ItemStack[] { diamondlegg });
+
+      }
+      if (cevent.getSlot() == 1) {
+          Player pl = (Player)cevent.getWhoClicked();
+          pl.closeInventory();
+          Inventory target = pl.getInventory();
+          ItemStack diamondboots = new ItemStack(Material.DIAMOND_BOOTS, 1);
+
+          diamondboots.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 1);
+
+          ItemMeta mm = diamondboots.getItemMeta();
+          diamondboots.setItemMeta(mm);
+          target.addItem(new ItemStack[] { diamondboots });
+
+      }
+
+      if (cevent.getSlot() == 2) {
+          Player pl = (Player)cevent.getWhoClicked();
+          pl.closeInventory();
+          Inventory target = pl.getInventory();
+          ItemStack diamondchest = new ItemStack(Material.DIAMOND_CHESTPLATE, 1);
+
+          diamondchest.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 1);
+
+          ItemMeta mm = diamondchest.getItemMeta();
+          diamondchest.setItemMeta(mm);
+          target.addItem(new ItemStack[] { diamondchest });
+   
+      }
+
+      if (cevent.getSlot() == 3) {
+        Player pl = (Player)cevent.getWhoClicked();
+        pl.closeInventory();
+        Inventory target = pl.getInventory();
+        ItemStack diamondhelm = new ItemStack(Material.DIAMOND_HELMET, 1);
+
+        diamondhelm.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 1);
+
+        ItemMeta mm = diamondhelm.getItemMeta();
+        diamondhelm.setItemMeta(mm);
+        target.addItem(new ItemStack[] { diamondhelm });
+ 
+
+
+
+ 
+      }
+
+      }
+    }
+  }
